@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import com.rosinante.lifecycle.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.content_detail.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,6 +27,12 @@ class DetailActivity : AppCompatActivity() {
                 .load(imagebackgrounds)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(imagebackground)
+
+        textDetail.text = releasedate + "\n\n"
+        textDetail.append(popularity.toString() + "\n\n")
+        textDetail.append(voteCount.toString() + "\n\n")
+        textDetail.append(textoverview)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }
