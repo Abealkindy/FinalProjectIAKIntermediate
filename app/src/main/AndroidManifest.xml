@@ -29,6 +29,15 @@
             android:name=".activities.MenuUtama"
             android:label="@string/title_activity_menu_utama"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".activities.MenuUtama"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.rosinante.lifecycle.activities.MenuUtama" />
+        </activity>
     </application>
 
 </manifest>

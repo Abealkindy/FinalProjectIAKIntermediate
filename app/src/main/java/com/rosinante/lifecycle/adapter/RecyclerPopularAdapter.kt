@@ -1,5 +1,6 @@
 package com.rosinante.lifecycle.adapter
 
+import android.content.Intent
 import android.support.v4.app.FragmentActivity
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.rosinante.lifecycle.R
+import com.rosinante.lifecycle.activities.DetailActivity
 import com.rosinante.lifecycle.model.PopularModel
 import com.squareup.picasso.Picasso
 
@@ -33,6 +35,17 @@ class RecyclerPopularAdapter : RecyclerView.Adapter<RecyclerPopularAdapter.ViewH
                 .load("http://image.tmdb.org/t/p/w185" + results?.get(position)!!.poster_path)
                 .placeholder(R.mipmap.ic_launcher_round)
                 .into(holder.imagelist)
+        holder.carditemfilm.setOnClickListener {
+            var intent = Intent(activity?.applicationContext, DetailActivity::class.java)
+            intent.putExtra("titlemovie", results?.get(position)!!.title)
+                    .putExtra("textrelease", results?.get(position)!!.release_date)
+                    .putExtra("textpopularity", results?.get(position)!!.popularity)
+                    .putExtra("imagebackground", "http://image.tmdb.org/t/p/w780" + results?.get(position)!!.backdrop_path)
+                    .putExtra("textoverview", results?.get(position)!!.overview)
+                    .putExtra("votecount", results?.get(position)!!.vote_count)
+                    .putExtra("voteaverage", results?.get(position)!!.vote_average)
+            activity?.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
