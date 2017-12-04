@@ -13,12 +13,12 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         setSupportActionBar(toolbar)
-        var title = intent.getStringExtra("titlemovie")
-        var releasedate = intent.getStringExtra("textrelease")
-        var popularity = intent.getDoubleExtra("textpopularity", 0.0)
-        var imagebackgrounds = intent.getStringExtra("imagebackground")
-        var textoverview = intent.getStringExtra("textoverview")
-        var voteCount = intent.getIntExtra("votecount", 0)
+        val title = intent.getStringExtra("titlemovie")
+        val releasedate = intent.getStringExtra("textrelease")
+        val popularity = intent.getDoubleExtra("textpopularity", 0.0)
+        val imagebackgrounds = intent.getStringExtra("imagebackground")
+        val textoverview = intent.getStringExtra("textoverview")
+        val voteCount = intent.getIntExtra("votecount", 0)
         var voteAverage = intent.getDoubleExtra("voteaverage", 0.0)
 
         toolbar_layout.title = title

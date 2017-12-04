@@ -16,6 +16,7 @@ class SplashScreenActivity : AppCompatActivity() {
         Handler().postDelayed({
             //method startActivity() sebagai sarana berpindah activity sebelumnya ke activity yang akan dituju
             startActivity(Intent(this@SplashScreenActivity, MenuUtama::class.java))
+            finish()
             //angka dibawah ini sebagai acuan waktu jarak perpindahan activitynya, disini saya pasang 3000 atau 3 detik
         }, 3000)
     }
