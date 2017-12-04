@@ -3,10 +3,11 @@ package com.rosinante.lifecycle.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import com.rosinante.lifecycle.R
 import com.rosinante.lifecycle.adapter.RecyclerPopularAdapter
@@ -36,11 +37,17 @@ class PopularFragment : Fragment() {
         var call = apiservice.getPopular("1b0b39b7699af0ca010cd87d9e6de6c8")
         call.enqueue(object : Callback<PopularModel> {
             override fun onFailure(call: Call<PopularModel>?, t: Throwable?) {
+                Log.d("Data : ", "" + t?.message)
             }
 
             override fun onResponse(call: Call<PopularModel>?, response: Response<PopularModel>) {
-                recyclerPopular.layoutManager = LinearLayoutManager(activity)
-                recyclerPopular.adapter = RecyclerPopularAdapter(activity, response.body()!!.results)
+                if (response.isSuccessful) {
+                    recyclerPopular.adapter = RecyclerPopularAdapter(activity, response.body()!!.results)
+                    Log.d("Data : ", "" + response.body()!!.results)
+                } else {
+
+                }
+
             }
 
         })

@@ -8,9 +8,9 @@ class PopularModel {
 
     class PopularData {
         var vote_count: Int? = null
-        var vote_average: Long? = null
+        var vote_average: Double? = null
         lateinit var title: String
-        var popularity: Int? = null
+        var popularity: Double? = null
         lateinit var overview: String
         lateinit var poster_path: String
         lateinit var backdrop_path: String
